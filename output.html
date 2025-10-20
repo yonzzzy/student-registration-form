@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration Summary</title>
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, #000, #0a0a0a);
-      color: #eee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      overflow: hidden;
-    }
+   body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #000, #0a0a0a);
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* let it grow downward */
+  min-height: 100vh;
+  margin: 0;
+  overflow-y: auto; /* ✅ allows scrolling */
+  overflow-x: hidden;
+  padding: 40px 0; /* adds space at top and bottom */
+}
+
 
     /* Background glow animation */
     body::before {
@@ -156,7 +159,13 @@
         <div class="info"><span>School Year:</span> ${data.schoolyear}</div>
         <div class="info"><span>School Name:</span> ${data.schoolname}</div>
         <div class="info"><span>Last School Attended:</span> ${data.lastschool}</div>
-        <div class="info"><span>Username:</span> ${data.username}</div>
+                <div class="section-title">Parent / Guardian Information</div>
+        <div class="info"><span>Full Name:</span> ${data.parentname}</div>
+        <div class="info"><span>Relationship:</span> ${data.relationship}</div>
+        <div class="info"><span>Contact Number:</span> ${data.parentphone}</div>
+        <div class="info"><span>Email:</span> ${data.parentemail}</div>
+        <div class="info"><span>Address:</span> ${data.parentaddress}</div>
+
       `;
     }
 
@@ -166,3 +175,4 @@
   </script>
 </body>
 </html>
+

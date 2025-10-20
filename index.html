@@ -265,17 +265,23 @@
       </div>
     </div>
 
-    <div class="container">
-      <h2>Account Information</h2>
+   <div class="container">
+      <h2>Parent / Guardian Information</h2>
 
-      <label>Username</label>
-      <input type="text" name="username" placeholder="Create a username" required>
+      <label>Parent/Guardian Full Name</label>
+      <input type="text" name="parentname" placeholder="Enter full name" required>
 
-      <label>Password</label>
-      <input type="password" name="password" placeholder="Enter your password" required>
+      <label>Relationship to Student</label>
+      <input type="text" name="relationship" placeholder="e.g., Mother, Father, Guardian" required>
 
-      <label>Confirm Password</label>
-      <input type="password" name="confirmpassword" placeholder="Re-enter password" required>
+      <label>Contact Number</label>
+      <input type="tel" name="parentphone" placeholder="09XX-XXX-XXXX" pattern="[0-9]{11}" required>
+
+      <label>Email Address</label>
+      <input type="email" name="parentemail" placeholder="example@email.com">
+
+      <label>Address</label>
+      <textarea name="parentaddress" rows="2" placeholder="Enter parent/guardian address"></textarea>
 
       <div class="buttons">
         <button type="submit" class="btn btn-submit">Register</button>
@@ -305,4 +311,5 @@
   </script>
 </body>
 </html>
+
 

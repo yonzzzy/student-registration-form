@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Summary</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #000, #0a0a0a);
+      color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Background glow animation */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #000000, #2a002a, #660044, #ff007f, #990066);
+      background-size: 400% 400%;
+      animation: bgShift 18s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: rgba(20, 20, 20, 0.9);
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #ff007f;
+      border: 2px solid #ff007f;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .icon {
+      font-size: 60px;
+      color: #ff4da6;
+      text-shadow: 0 0 20px #ff66b2;
+      margin-bottom: 10px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.85; }
+    }
+
+    h2 {
+      color: #ff66b2;
+      text-shadow: 0 0 15px #ff3399;
+      margin-bottom: 20px;
+      font-size: 1.7rem;
+    }
+
+    .info {
+      text-align: left;
+      background: #1a1a1a;
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border-left: 3px solid #ff66b2;
+      font-size: 14px;
+    }
+
+    .info span {
+      color: #ff99cc;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    .shapes {
+      text-align: center;
+      font-size: 20px;
+      color: #ff007f;
+      text-shadow: 0 0 10px #ff4da6;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ff007f;
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 0 10px #ff4da6;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff3399;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">✅</div>
+    <h2>Registration Successful!</h2>
+    <div class="shapes">● ▲ ■</div>
+
+    <div id="output"></div>
+
+    <button class="btn" onclick="goBack()">← Back to Form</button>
+
+    <footer>© 2025 Student Registration System</footer>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("studentData"));
+    const outputDiv = document.getElementById("output");
+
+    if (data) {
+      outputDiv.innerHTML = `
+        <div class="info"><span>First Name:</span> ${data.fname}</div>
+        <div class="info"><span>Last Name:</span> ${data.lname}</div>
+        <div class="info"><span>Date of Birth:</span> ${data.dob}</div>
+        <div class="info"><span>Gender:</span> ${data.gender}</div>
+        <div class="info"><span>Email:</span> ${data.email}</div>
+        <div class="info"><span>Phone:</span> ${data.phone}</div>
+        <div class="info"><span>Address:</span> ${data.address}</div>
+        <div class="info"><span>Student ID:</span> ${data.studentid}</div>
+        <div class="info"><span>Grade Level:</span> ${data.year}</div>
+        <div class="info"><span>Course:</span> ${data.course}</div>
+        <div class="info"><span>Scholarship:</span> ${data.scholarship}</div>
+        ${data.scholarship === "YES" ? `<div class="info"><span>Scholarship Type:</span> ${data.scholarship_type}</div>` : ""}
+        <div class="info"><span>School Year:</span> ${data.schoolyear}</div>
+        <div class="info"><span>School Name:</span> ${data.schoolname}</div>
+        <div class="info"><span>Last School Attended:</span> ${data.lastschool}</div>
+        <div class="info"><span>Username:</span> ${data.username}</div>
+      `;
+    }
+
+    function goBack() {
+      window.location.href = "index.html"; // Change if your form page has a different name
+    }
+  </script>
+</body>
+</html>
